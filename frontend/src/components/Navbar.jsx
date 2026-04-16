@@ -1,47 +1,27 @@
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
-const links = [
-  ['/', 'Home'],
-  ['/packages', 'Tour Packages'],
-  ['/accommodation', 'Accommodation'],
-  ['/transport', 'Transport'],
-  ['/guides', 'Travel Guides'],
-  ['/contact', 'Contact'],
-];
-
 export default function Navbar() {
   const { user, logout } = useAuth();
 
   return (
-    <header className="bg-primary text-white shadow">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
-        <Link className="text-xl font-bold" to="/">
-          GlobeTrek Adventures
-        </Link>
-        <nav className="hidden gap-4 md:flex">
-          {links.map(([href, label]) => (
-            <Link key={href} className="text-sm hover:text-secondary" to={href}>
-              {label}
-            </Link>
-          ))}
+    <header className="bg-blue-900 text-white">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+        <Link to="/" className="font-bold">GlobeTrek Adventures</Link>
+
+        <nav className="hidden gap-3 text-sm md:flex">
+          <Link to="/packages">Packages</Link>
+          <Link to="/accommodation">Accommodation</Link>
+          <Link to="/transport">Transport</Link>
+          <Link to="/guides">Guides</Link>
+          <Link to="/contact">Contact</Link>
         </nav>
-        <div className="flex items-center gap-3 text-sm">
-          {user ? (
-            <>
-              <Link className="rounded bg-secondary px-3 py-1 text-slate-900" to={`/${user.role}`}>
-                Dashboard
-              </Link>
-              <button onClick={logout}>Logout</button>
-            </>
-          ) : (
-            <>
-              <Link to="/login">Login</Link>
-              <Link className="rounded bg-accent px-3 py-1 text-slate-900" to="/register">
-                Register
-              </Link>
-            </>
-          )}
+
+        <div className="flex items-center gap-2 text-sm">
+          {!user && <Link to="/login">Login</Link>}
+          {!user && <Link className="rounded bg-orange-400 px-2 py-1 text-black" to="/register">Register</Link>}
+          {user && <Link className="rounded bg-teal-400 px-2 py-1 text-black" to={`/${user.role}`}>Dashboard</Link>}
+          {user && <button onClick={logout}>Logout</button>}
         </div>
       </div>
     </header>

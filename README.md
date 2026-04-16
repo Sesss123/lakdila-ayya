@@ -1,14 +1,14 @@
-# GlobeTrek Adventures (Full-Stack)
+# GlobeTrek Adventures - Simple Full-Stack Project
 
-Production-oriented university submission scaffold for a travel and tourism platform.
+This project is written in a **beginner-friendly way** for a university assignment.
 
-## Tech Stack
-- **Frontend:** React + Vite + Tailwind CSS
-- **Backend:** Node.js + Express
-- **Database:** MongoDB + Mongoose
-- **Auth:** JWT
+## 1. Technology Used
+- Frontend: React + Vite + Tailwind CSS
+- Backend: Node.js + Express
+- Database: MongoDB + Mongoose
+- Authentication: JWT
 
-## Project Structure
+## 2. Folder Structure
 ```text
 frontend/
   src/
@@ -30,19 +30,17 @@ backend/
   routes/
 ```
 
-## Features Implemented
-- User registration/login with JWT
-- Role-based access control (customer/staff/admin)
-- Public tourism pages
-- Package list/detail pages with backend integration
-- Customer, staff, and admin dashboard routes
-- Booking API and inquiry API
-- Package management API endpoint for admin
+## 3. Main Features
+- User register and login
+- Role-based dashboards (customer, staff, admin)
+- Tour package list and package details
+- Booking API
+- Inquiry API
+- Admin-only package creation API
 - Wishlist field in user model
-- Booking status tracking in booking model
-- Error/404/500 handlers
+- Booking status tracking
 
-## Backend API
+## 4. API Endpoints
 - `POST /api/auth/register`
 - `POST /api/auth/login`
 - `GET /api/packages`
@@ -53,8 +51,8 @@ backend/
 - `POST /api/inquiry`
 - `GET /api/inquiries` (staff/admin)
 
-## Run Instructions
-### 1) Backend
+## 5. How to Run
+### Backend
 ```bash
 cd backend
 cp .env.example .env
@@ -62,14 +60,14 @@ npm install
 npm run dev
 ```
 
-### 2) Frontend
+### Frontend
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
 
-Set frontend API URL if needed:
+Optional frontend environment file:
 ```bash
 # frontend/.env
 VITE_API_URL=http://localhost:5000/api

@@ -8,9 +8,20 @@ const links = [
 ];
 
 export default function StaffDashboardPage() {
+  const tasks = [
+    'Check pending bookings',
+    'Update package prices',
+    'Reply to customer inquiries',
+  ];
+
   return (
     <DashboardShell title="Staff Dashboard" links={links}>
-      <div className="rounded-xl bg-white p-4 shadow">Operational queue and task management panel.</div>
+      <div className="rounded-lg bg-white p-4 shadow">
+        <h3 className="mb-2 text-lg font-semibold text-blue-900">Today Tasks</h3>
+        <ul className="list-disc pl-5 text-sm text-slate-700">
+          {tasks.map((task) => <li key={task}>{task}</li>)}
+        </ul>
+      </div>
     </DashboardShell>
   );
 }
